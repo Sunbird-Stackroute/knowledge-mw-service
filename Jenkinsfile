@@ -24,7 +24,7 @@ node('build-slave') {
                 }
                 else {
                     def scmVars = checkout scm
-                    checkout scm: [$class: 'GitSCM', branches: [[name: "refs/tags/$params.github_release_tag"]], userRemoteConfigs: [[url: scmVars.GIT_URL]]]
+                    checkout scm: [$class: 'GitSCM', branches: [[name: "origin/$params.github_release_tag"]], userRemoteConfigs: [[url: scmVars.GIT_URL]]]
                     build_tag = params.github_release_tag + "_" + env.BUILD_NUMBER
                     println(ANSI_BOLD + ANSI_YELLOW + "github_release_tag specified, building from github_release_tag: " + params.github_release_tag + ANSI_NORMAL)
                 }
