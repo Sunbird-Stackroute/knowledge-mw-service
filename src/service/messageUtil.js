@@ -71,6 +71,27 @@ exports.COURSE = {
   PREFIX_CODE: 'org.sunbird.'
 }
 
+exports.MEETING = {
+  CREATE: {
+    MISSING_CODE: 'ERR_MEETING_CREATE_FIELDS_MISSING',
+    MISSING_MESSAGE: 'Required fields for create meeting are missing',
+    FAILED_CODE: 'ERR_MEETING_CREATE_FAILED',
+    FAILED_MESSAGE: 'Create meeting failed'
+  },
+  GET: {
+    MISSING_CODE: 'ERR_MEETING_GET_FIELDS_MISSING',
+    MISSING_MESSAGE: 'Required fields for get meeting are missing',
+    FAILED_CODE: 'ERR_MEETING_GET_FAILED',
+    FAILED_MESSAGE: 'Get meeting failed'
+  },
+  GENERATE_SIGNATURE: {
+    MISSING_CODE: 'ERR_MEETING_GET_FIELDS_MISSING',
+    MISSING_MESSAGE: 'Required fields for generate meeting signature are missing',
+    FAILED_CODE: 'ERR_MEETING_GET_FAILED',
+    FAILED_MESSAGE: 'Generate meeting signature failed'
+  },
+  PREFIX_CODE: 'org.sunbird.'
+}
 exports.CONTENT = {
 
   SEARCH: {
