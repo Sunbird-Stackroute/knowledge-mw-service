@@ -162,6 +162,7 @@ app.use(function (req, res, next) {
 require('./routes/healthCheckRoutes')(app)
 require('./routes/courseRoutes')(app)
 require('./routes/contentRoutes')(app)
+require('./routes/meetingRoutes')(app)
 require('./routes/conceptRoutes')(app)
 require('./routes/searchRoutes')(app)
 require('./routes/dialCodeRoutes')(app)
@@ -234,7 +235,7 @@ const telemetryConfig = {
 
 logger.debug({ msg: 'Telemetry is initialized.' })
 telemetry.init(telemetryConfig)
-process.on('unhandledRejection', (reason, p) => { 
+process.on('unhandledRejection', (reason, p) => {
   console.log("Kp-mw Unhandled Rejection", p, reason);
   logger.error({msg:"Kp-mw Unhandled Rejection",  p, reason})
 });

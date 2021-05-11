@@ -6,7 +6,6 @@
 
 var meetingService = require('../service/meetingService')
 var requestMiddleware = require('../middlewares/request.middleware')
-// var filterMiddleware = require('../middlewares/filter.middleware')
 var healthService = require('../service/healthCheckService')
 
 var BASE_URL = '/v1/meetings'
@@ -26,6 +25,5 @@ module.exports = function (app) {
 
   app.route(BASE_URL + '/:meetingId')
     .get(healthService.checkDependantServiceHealth(dependentServiceHealth),
-      requestMiddleware.validateToken,
       requestMiddleware.createAndValidateRequestBody, meetingService.getMeetingAPI)
 }
