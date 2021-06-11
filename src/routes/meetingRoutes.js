@@ -14,8 +14,6 @@ var dependentServiceHealth = ['EKSTEP']
 module.exports = function (app) {
   app.route(BASE_URL)
     .post(healthService.checkDependantServiceHealth(dependentServiceHealth),
-      requestMiddleware.gzipCompression(),
-      requestMiddleware.validateToken,
       requestMiddleware.createAndValidateRequestBody, meetingService.createMeetingAPI)
 
   app.route(BASE_URL + '/signature')

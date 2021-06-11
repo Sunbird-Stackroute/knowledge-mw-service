@@ -1,9 +1,9 @@
 module.exports.MEETING = {
 
   CREATE: {
-    type: 'required|int',
+    type: 'required|integer',
     topic: 'required|string',
-    settings: 'required|object',
+    settings: 'required',
     created_by: 'required|string'
   },
 
