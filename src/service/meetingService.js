@@ -59,7 +59,7 @@ function createMeetingAPI (req, response) {
         additionalInfo: { body: ekStepReqData }
       }, req)
       contentProvider.createMeeting(ekStepReqData, req.headers, function (err, res) {
-        if (err || res.responseCode !== responseCode.SUCCESS) {
+        if (err || res.responseCode !== responseCode.CREATED) {
           rspObj.errCode = res && res.params ? res.params.err : meetingMessage.CREATE.FAILED_CODE
           rspObj.errMsg = res && res.params ? res.params.errmsg : meetingMessage.CREATE.FAILED_MESSAGE
           rspObj.responseCode = res && res.responseCode ? res.responseCode : responseCode.SERVER_ERROR
@@ -85,8 +85,9 @@ function createMeetingAPI (req, response) {
     function (res) {
       // rspObj.result.content_id = res.result.node_id
       // rspObj.result.versionKey = res.result.versionKey
+      rspObj.result = res && res.result ? res.result : {}
       logger.debug({ msg: 'Sending response back to user', res: rspObj.result }, req)
-      return response.status(200).send(respUtil.successResponse(rspObj))
+      return response.status(res.statusCode).send(respUtil.successResponse(rspObj))
     }
 
   ])
